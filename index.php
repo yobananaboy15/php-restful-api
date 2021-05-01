@@ -1,10 +1,10 @@
 <?php
 
-// header("Content-Type: application/json; charset=UTF-8");
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: GET");
-// header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-// header("Referrer-Policy: no-referrer");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Referrer-Policy: no-referrer");
 
 //Bättre att använda include?
 
@@ -21,7 +21,7 @@ $category = $_GET['category'];
 //Kolla om array category isset.
 if ($category) {
     if (!in_array($category, $category_array)) {
-        $error_array["Category"] = 'Category not found';
+        array_push($error_array, array("Category" => 'Category not found'));
     } else {
         $returnArray = array_filter($array_data, function ($product) {
             global $category;
@@ -38,6 +38,6 @@ if (!$show >= 1 && $show <= 20) {
     echo $returnData;
 }
 
-echo "<pre>";
-var_dump($error_array);
-echo "</pre>";
+// echo "<pre>";
+echo json_encode($error_array);
+// echo "</pre>";
