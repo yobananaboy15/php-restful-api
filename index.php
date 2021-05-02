@@ -6,8 +6,8 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header("Referrer-Policy: no-referrer");
 
-$data = file_get_contents('./data.json', FILE_USE_INCLUDE_PATH);
-$returnArray = json_decode($data, true);
+include_once "data.php";
+
 $categoryArray = ['jewelery', 'men\'s clothing', 'women\'s clothing', 'electronics'];
 $error_array = [];
 
