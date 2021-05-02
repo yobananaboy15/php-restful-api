@@ -18,10 +18,10 @@ if ($category) {
     if (!in_array($category, $categoryArray)) {
         array_push($error_array, array("Category" => 'Category not found'));
     } else {
-        $returnArray = array_filter($returnArray, function ($product) {
+        $returnArray = array_values(array_filter($returnArray, function ($product) {
             global $category;
             return $product['category'] == $category;
-        });
+        }));
     }
 }
 
