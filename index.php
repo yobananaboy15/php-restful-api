@@ -8,7 +8,7 @@ header("Referrer-Policy: no-referrer");
 
 $data = file_get_contents('./data.json', FILE_USE_INCLUDE_PATH);
 $returnArray = json_decode($data, true);
-$categoryArray = ['jewelery', 'men clothing', 'women clothing', 'electronics'];
+$categoryArray = ['jewelery', 'men\'s clothing', 'women\'s clothing', 'electronics'];
 $error_array = [];
 
 $show = $_GET['show'] ?? null;
