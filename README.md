@@ -1,1 +1,1 @@
-# php-rest-api
+# php-restful-api
