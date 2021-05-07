@@ -11,10 +11,8 @@ include_once "data.php";
 $categoryArray = ['jewelery', 'men\'s clothing', 'women\'s clothing', 'electronics'];
 $error_array = [];
 
-$show = $_GET['show'] ?? null;
-$category = $_GET['category'] ?? null;
-
-if ($category) {
+if (isset($_GET['category'])) {
+    $category = $_GET['category'];
     if (!in_array($category, $categoryArray)) {
         array_push($error_array, array("Category" => 'Category not found'));
     } else {
@@ -25,7 +23,8 @@ if ($category) {
     }
 }
 
-if ($show) {
+if (isset($_GET['show'])) {
+    $show = $_GET['show'];
     if ($show >= 1 && $show <= 20) {
         shuffle($returnArray);
         $returnArray = array_slice($returnArray, 0, $show);
